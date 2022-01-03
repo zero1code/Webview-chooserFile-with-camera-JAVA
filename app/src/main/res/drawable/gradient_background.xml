@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" android:shape="rectangle" >
+
+    <gradient
+        android:angle="0"
+        android:startColor="@color/colorPrimary"
+        android:endColor="@color/yellow"
+        android:type="linear" />
+
+    <corners
+        android:radius="0dp"/>
+
+    <rotate
+        android:fromDegrees="-10"
+        android:pivotX="0%"
+        android:pivotY="100%">
+        <shape
+            android:shape="rectangle">
+            <solid
+                android:color="?android:colorBackground"/>
+        </shape>
+    </rotate>
+
+</shape>

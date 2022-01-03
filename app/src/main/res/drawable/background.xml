@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@drawable/gradient_background"/>
+
+    <item android:top="230dp"
+        android:bottom="-100dp"
+        android:left="0dp"
+        android:right="-300dp">
+        <rotate
+            android:fromDegrees="-3"
+            android:pivotX="0%"
+            android:pivotY="100%">
+            <shape
+                android:shape="rectangle">
+                <solid
+                    android:color="@color/colorSecondary"/>
+            </shape>
+        </rotate>
+    </item>
+
+</layer-list>

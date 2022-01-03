@@ -2,13 +2,27 @@
     <!-- Base application theme. -->
     <style name="Theme.WebViewCPostal" parent="Theme.MaterialComponents.Light.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/purple_500</item>
-        <item name="colorSecondary">@color/purple_700</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorSecondary">@color/colorSecondary</item>
         <!-- Secondary brand color. -->
 
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimary</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@color/colorPrimary</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="m">true</item>
+
         <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@drawable/background</item>
+
+    </style>
+
+    <style name="Theme.WebViewCPostal.Error" parent="Widget.MaterialComponents.Button">
+        <item name="android:paddingLeft">@dimen/mtrl_btn_padding_left</item>
+        <item name="android:paddingRight">@dimen/mtrl_btn_padding_right</item>
+        <item name="strokeColor">@color/red</item>
+        <item name="strokeWidth">@dimen/mtrl_btn_stroke_size</item>
+        <item name="backgroundTint">@color/red</item>
+        <item name="rippleColor">@color/ripple_red</item>
+        <item name="android:textColor">@color/white</item>
 
     </style>
 </resources>

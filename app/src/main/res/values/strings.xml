@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">WebView-CPostal</string>
+    <string name="label_permission_title">Ativar o acesso nas configurações do aplicativo</string>
+    <string name="label_permission_description">Você desativou anteriormente a permissão de %1$s no CPostal.\n\nPara Ativar, clique em Configurações do aplicativo abaixo e ative a %1$s no menu Permissões.</string>
+    <string name="label_permission_toast">Aceite as permissões para utilizar o aplicativo</string>
+    <string name="label_welcome">Bem vindo ao CPostal</string>
+    <string name="label_request_permission_text_button">Permitir acesso</string>
+    <string name="label_enter">ENTRAR</string>
+    <string name="label_try_again">Tentar novamente</string>
+    <string name="label_somehting_wrong">Alguma coisa deu errado.</string>
 </resources>
