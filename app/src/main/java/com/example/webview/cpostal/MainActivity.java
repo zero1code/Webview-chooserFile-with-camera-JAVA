@@ -36,12 +36,14 @@ import androidx.constraintlayout.widget.Group;
 import androidx.core.content.ContextCompat;
 
 import com.airbnb.lottie.LottieAnimationView;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 import com.google.android.material.progressindicator.LinearProgressIndicator;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.io.ByteArrayOutputStream;
 import java.util.Map;
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
     private LinearProgressIndicator progressIndicator;
     private LottieAnimationView lottieAnimationView;
     private TextView tvWelcome, tvErrorInfo;
+    private MaterialToolbar toolbar;
 
     private ValueCallback<Uri[]> f_string;
     private String cam_path;
@@ -157,6 +160,10 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        toolbar.setNavigationOnClickListener(v -> {
+            onBackPressed();
+        });
+
         btnError.setOnClickListener(v -> {
             loadWebView();
         });
@@ -176,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
         if (myWebView.canGoBack()) {
             myWebView.goBack();
         } else {
+            toolbar.setVisibility(View.GONE);
             goBackHome++;
             if (goBackHome == 1) {
 
@@ -215,6 +223,9 @@ public class MainActivity extends AppCompatActivity {
         lottieAnimationView = findViewById(R.id.ic_lottie);
         tvWelcome = findViewById(R.id.tv_welcome);
         tvErrorInfo = findViewById(R.id.tv_error_info);
+
+        toolbar = findViewById(R.id.topAppBar);
+        setSupportActionBar(toolbar);
 
     }
 
@@ -265,7 +276,6 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
 
-
     @SuppressLint("SetJavaScriptEnabled")
     private void loadWebView() {
         //Controle de visualização no onBackPressed()
@@ -296,8 +306,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageFinished(WebView view, String url) {
                 super.onPageFinished(view, url);
-
-
             }
 
             @Override
@@ -313,7 +321,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onPageStarted(WebView view, String url, Bitmap favicon) {
                 super.onPageStarted(view, url, favicon);
-                defaultUi();
+                MainMenu();
             }
         });
 
@@ -366,9 +374,10 @@ public class MainActivity extends AppCompatActivity {
         btnAddPermission.clearAnimation();
         btnAddPermission.setVisibility(View.GONE);
         btnError.setVisibility(View.VISIBLE);
+        toolbar.setVisibility(View.GONE);
     }
 
-    private void defaultUi() {
+    private void MainMenu() {
         layout.setElevation(1);
         group.setVisibility(View.VISIBLE);
         lottieAnimationView.setAnimation(R.raw.animation_package);
@@ -378,6 +387,7 @@ public class MainActivity extends AppCompatActivity {
         tvErrorInfo.setText("");
         btnAddPermission.setVisibility(View.VISIBLE);
         btnError.setVisibility(View.GONE);
+        toolbar.setVisibility(View.VISIBLE);
     }
 
     private void dialogPermission(String permissaoNegada) {
